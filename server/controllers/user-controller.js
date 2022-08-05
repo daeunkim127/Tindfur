@@ -42,14 +42,14 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
-  // save a dog to a user's `savedFav` field by adding it to the set (to prevent duplicates)
+  // save a dog to a user's `favoriteUsers` field by adding it to the set (to prevent duplicates)
   // user comes from `req.user` created in the auth middleware function
   async saveFav({ user, body }, res) {
     console.log(user);
     try {
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
-        { $addToSet: { savedFav: body } },
+        { $addToSet: { favoriteUsers: body } },
         { new: true, runValidators: true }
       );
       return res.json(updatedUser);
@@ -58,11 +58,11 @@ module.exports = {
       return res.status(400).json(err);
     }
   },
-  // remove a dog from `savedDog`
+  // remove a user from `favoriteUsers`
   async deleteFav({ user, params }, res) {
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
-      { $pull: { savedFav: { dogId: params.dogId } } },
+      { $pull: { favoriteUsers: { _id: params._id } } },
       { new: true }
     );
     if (!updatedUser) {
