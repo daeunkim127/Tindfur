@@ -6,7 +6,7 @@ const characteristicSchema = require('./Characteristic');
 
 const userSchema = new Schema(
   {
-    username: {
+    name: {
       type: String,
       required: true,
       unique: true,
@@ -32,16 +32,31 @@ const userSchema = new Schema(
     breed: {
       type: String,
     },
+    age: {
+      type: Number,
+    },
+    gender: {
+      type: String,
+    },
+    about: {
+      type: String,
+    },
     // set characteristics to be an array of data that adheres to the characteristicSchema
-    characteristics: [characteristicSchema],
+    characteristics: {
+      type: Array,
+    },
     favoriteTreat: {
       type: String,
     },
     image: {
       type: String,
     },
-    favoriteUsers: [userSchema],
+    favoriteUsers: {
+      type: Array,
+      default: [],
+    },
   },
+  {timestamps: true},
   // set this to use virtual below
   {
     toJSON: {
