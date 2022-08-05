@@ -131,6 +131,38 @@ const Homepage  = () => {
                     </Form>
                 </Container>
             </Jumbotron>
+            <Container>
+                <h2>
+                    {dog.name ? `Your Current Prospective:  ${dog.name}` : ''}
+                </h2>
+                <CardColumns>
+          {searchedBooks.map((dog) => {
+            return (
+              <Card key={dog.dogId} border='dark'>
+                {dog.image ? (
+                  <Card.Img src={dog.image} alt={`The cover for ${dog.title}`} variant='top' />
+                ) : null}
+                <Card.Body>
+                  <Card.Title>{dog.title}</Card.Title>
+                  <p className='small'>Authors: {dog.authors}</p>
+                  <Card.Text>{dog.characteristics}</Card.Text>
+                  {Auth.loggedIn() && (
+                    <Button
+                      disabled={savedDogIds?.some((savedDogId) => savedDogId === dog.dogId)}
+                      className='btn-block btn-info'
+                      onClick={() => handleSaveDog(dog.dogId)}>
+                      {savedDogIds?.some((savedDogId) => savedDogId === dog.dogId)
+                        ? 'This dog has been saved to favorites!'
+                        : 'Save this dog to favorites!'}
+                    </Button>
+                  )}
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </CardColumns>
+            </Container>
+            
         </>
     )
 
