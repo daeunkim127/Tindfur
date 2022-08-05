@@ -22,6 +22,6 @@ router.route('/signup').post(createUser);
 //profile page//
 // router.route('/me').get(authMiddleware, getSingleUser);
 
-router.route('/favorites').delete(authMiddleware, deleteFav);
+router.route('/favorites/:_id').delete(authMiddleware, deleteFav);
 
 module.exports = router;
