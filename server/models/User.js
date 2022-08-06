@@ -40,7 +40,7 @@ const userSchema = new Schema(
     },
     // set characteristics to be an array of data that adheres to the characteristicSchema
     characteristics: {
-      type: Array,
+      type: [String],
     },
     favoriteTreat: {
       type: String,
