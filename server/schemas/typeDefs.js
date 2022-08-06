@@ -4,20 +4,31 @@ const typeDefs = gql`
 
 type User {
     _id: ID!
-    username: String
+    name: String
     email: String
     city: String
     state: String
     breed: String
-    characteristics:[Characteristic]
+    characteristics:[String]
     favoriteTreat: String
     image: String
-    favoriteUsers: [User]
-  }
+    favoriteUsers: [ID]
+      
+}
+
+type UserWithFavorites {
+    user: User
+    favorites:[User]
+}
+
+type FavoriteUsers {
+    users: [User]
+}
 
 type Query{
     me: User
-    users: [User]
+    users:[User]
+    userWithFavorites:UserWithFavorites
 }
 
 
@@ -29,7 +40,7 @@ type Auth {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveFav(input: favoriteUsers!): User
+    saveFav(_id: ID!): User
     removeFav(_id: ID!): User
 }
 
