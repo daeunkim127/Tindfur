@@ -1,0 +1,107 @@
+[
+    {
+        "name":"CHARLIE",
+        "email":"Anthony_Tait4278@bungar.biz",
+        "password": "password12345",
+        "city":"Atlanta",
+        "state":"GA",
+        "breed":"American Eskimo Dog",
+        "age":2,
+        "gender":"Male",
+        "about":"Love long walks and games of catch",
+        "characteristics":["Friendly", "Alert", "Reserved", "Intelligent", "Protective"],
+        "favoriteTreat":"Yogurt",
+        "image":"https://cdn2.thedogapi.com/images/HJq5ke5Nm_1280.jpg"
+    
+    },
+    {
+        "name":"TEDDY",
+        "email":"Zara_Tutton7256@fuliss.net",
+        "password": "password12345",
+        "city":"Atlanta",
+        "state":"GA",
+        "breed":"Gordon Setter",
+        "age":1,
+        "gender":"Male",
+        "about":"He is very faithful, intelligent, and full of energy all the time.",
+        "characteristics":["Fearless", "Alert", "Loyal", "Confident", "Gay", "Eager"],
+        "favoriteTreat":"biscuits",
+        "image":"https://cdn2.thedogapi.com/images/SJ5vzx5NX_1280.jpg"
+    
+    },
+    {
+        "name":"BAILEY",
+        "email":"Matt_Harris7594@deons.tech",
+        "password": "password12345",
+        "city":"Tampa",
+        "state":"FL",
+        "breed":"Maltese",
+        "age":2,
+        "gender":"Female",
+        "about":"Very friendly and smart",
+        "characteristics":["Playful", "Docile", "Fearless", "Affectionate", "Sweet-Tempered"],
+        "favoriteTreat":"Jerky",
+        "image":"https://cdn2.thedogapi.com/images/B1SV7gqN7_1280.jpg"
+    
+    },
+    {
+        "name":"RUDY",
+        "email":"Camden_Clayton8996@hourpy.biz",
+        "password": "password12345",
+        "city":"Charleston",
+        "state":"SC",
+        "breed":"Border Collie",
+        "age":5,
+        "gender":"Female",
+        "about":"he is the most polite dog I have met ever.",
+        "characteristics":["Tenacious", "Keen", "Energetic", "Responsive", "Alert"],
+        "favoriteTreat":"Chicken Jerky",
+        "image":"https://cdn2.thedogapi.com/images/Vh2yFrSLm.jpg"
+    
+    },
+    {
+        "name":"WALTER",
+        "email":"Daniel_Richards7804@twace.org",
+        "password": "password12345",
+        "city":"Charlotte",
+        "state":"NC",
+        "breed":"Cocker Spaniel",
+        "age":2,
+        "gender":"Male",
+        "about":"Shy at first, but eager to play",
+        "characteristics":["Playful", "Quiet", "Faithful"],
+        "favoriteTreat":"Chicken Jerky",
+        "image":"https://cdn2.thedogapi.com/images/BP9tUfS_h.jpg"
+    
+    },
+    {
+        "name":"JASPER",
+        "email":"Rachael_Morgan1916@tonsy.org",
+        "password": "password12345",
+        "city":"Miami",
+        "state":"FL",
+        "breed":"Finnish Spitz",
+        "age":3,
+        "gender":"Female",
+        "about":"It has a strong smelling sense.",
+        "characteristics":["Playful", "Loyal", "Independent"],
+        "favoriteTreat":"Dried Beef",
+        "image":"https://cdn2.thedogapi.com/images/hYsMv3NQi.jpg"
+    
+    },
+    {
+        "name":"MILLEY",
+        "email":"Caydence_Cooper2309@vetan.org",
+        "password": "password12345",
+        "city":"Richmond",
+        "state":"VA",
+        "breed":"Kooikerhondje",
+        "age":4,
+        "gender":"Female",
+        "about":"He loves eating vegetables",
+        "characteristics":["Agile", "Alert", "Intelligent", "Active", "Territorial"],
+        "favoriteTreat":"Vegetables",
+        "image":"https://cdn2.thedogapi.com/images/mAdKLn7Rv.jpg"
+    
+    }
+]
