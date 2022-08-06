@@ -12,9 +12,10 @@ export const LOGIN_USER = gql`
   }
 `;
 
+
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser($username: String!, $email: String!, $password: String!, $city: String!, $state: String!, $breed: String!, $age: String!, $gender: String!, $about: String!, $characteristics: String!, $favorite_treat: String!) {
+    addUser(username: $username, email: $email, password: $password, city: $city, state: $state, breed: $breed, age: $age, gender: $gender, about: $about, characteristics: $characteristics, favorite_treat: $favorite_treat) {
       token
       user {
         _id
@@ -31,13 +32,17 @@ export const SAVE_DOG = gql`
       email
       dogCount
       savedDogs {
-        location
+        city
+        state
         breed
         dogId
+        age
+        gender
+        about
         image
         characteristics
         name
-        favoriteTreat
+        favorite_treat
       }
     }
   }
@@ -50,13 +55,17 @@ export const REMOVE_DOG = gql`
       email
       dogCount
       savedDogs {
-        location
+        city
+        state
         breed
         dogId
+        age
+        gender
+        about
         image
         characteristics
         name
-        favoriteTreat
+        favorite_treat
       }
     }
   }

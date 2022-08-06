@@ -9,13 +9,17 @@ export const GET_ME = gql`
       email
       dogCount
       savedDogs {
-        dogId
-        location
+        city
+        state
         breed
-        characteristics
+        dogId
+        age
+        gender
+        about
         image
+        characteristics
         name
-        favoriteTreat
+        favorite_treat
       }
     }
   }
