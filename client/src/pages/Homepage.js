@@ -38,7 +38,7 @@ const Homepage  = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput); // swipe dogs (save favorite dog)
+      const response = await searchGoogleBooks(searchInput); // swipe dogs (save favorite dog), connect to the seeded data here
 
       if (!response.ok) {
         throw new Error('something went wrong!');
