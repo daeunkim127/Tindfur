@@ -40,18 +40,21 @@ const userSchema = new Schema(
     },
     // set characteristics to be an array of data that adheres to the characteristicSchema
     characteristics: {
-      type: [String],
-    },
+      type: [String]
+    }
+    ,
     favoriteTreat: {
       type: String,
     },
     image: {
       type: String,
     },
-    favoriteUsers: {
-      type: Array,
-      default: [],
-    },
+    favoriteUsers: [
+      {
+      type: Schema.Types.ObjectId,
+      ref:'User'
+     }
+    ]
   },
   {timestamps: true},
   // set this to use virtual below
