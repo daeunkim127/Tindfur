@@ -70,8 +70,11 @@ const SavedDogs = () => {
                 {dog.image ? <Card.Img src={dog.image} alt={`The photo of ${dog.name}`} variant='top' /> : null}
                 <Card.Body>
                   <Card.Title>{dog.name}</Card.Title>
-                  <p className='small'>Location {dog.location}</p>
+                  <p className='small'>Location: {dog.city}, {dog.state}</p>
                   <Card.Text>Breed: {dog.breed}</Card.Text>
+                  <Card.Text>Age: {dog.age}</Card.Text>
+                  <Card.Text>Gender: {dog.gender}</Card.Text>
+                  <Card.Text>About: {dog.about}</Card.Text>
                   <Card.Text>Characteristics: {[dog.characteristics]}</Card.Text>
                   <Card.Text>Favorite Treat: {dog.treat}</Card.Text>
                   <Button className='btn-block btn-danger' onClick={() => handleDeleteDog(dog.dogId)}>

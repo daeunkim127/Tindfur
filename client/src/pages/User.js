@@ -3,7 +3,7 @@ import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'reac
 
 import Auth from '../utils/auth';
 // import {} from '../utils/API';
-import { saveDogIds, getSavedDogIds } from '..utils/localStorage'; // needs modification, you want to render the dog options to the homepage upon login.
+import { saveDogIds, getSavedDogIds } from '../utils/localStorage'; // needs modification, you want to render the dog options to the homepage upon login.
 import { useMutation } from '@apollo/react-hooks';
 import {SAVE_DOG} from '../utils/mutations';
 import { GET_ME } from '../utils/queries';

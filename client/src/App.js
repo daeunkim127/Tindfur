@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
+import Favorites from './pages/Favorites'
+import Homepage from './pages/Homepage'
+import User from './pages/User'
 import Navbar from './components/Navbar';
 
 function App() {
@@ -12,11 +13,15 @@ function App() {
         <Routes>
           <Route 
             path='/' 
-            element={<SearchBooks />} 
+            element={<Homepage />} 
           />
           <Route 
             path='/saved' 
-            element={<SavedBooks />} 
+            element={<Favorites />} 
+          />
+          <Route 
+          path='/user'
+          element={<User />}
           />
           <Route 
             path='*'
