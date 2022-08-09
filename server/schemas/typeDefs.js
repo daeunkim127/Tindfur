@@ -12,23 +12,17 @@ type User {
     characteristics:[String]
     favoriteTreat: String
     image: String
-    favoriteUsers: [ID]
+    favoriteUsers: [Favorite]
       
 }
 
-type UserWithFavorites {
-    user: User
-    favorites:[User]
-}
-
-type FavoriteUsers {
-    users: [User]
+type Favorite {
+    id: ID!
+    name: String
 }
 
 type Query{
-    me: User
-    users:[User]
-    userWithFavorites:UserWithFavorites
+    user(id: ID): User
 }
 
 
