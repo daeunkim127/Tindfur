@@ -5,25 +5,24 @@ const { default: mongoose } = require('mongoose');
 const resolvers = {
 
     Query: {
-        user: (root, args, context) => {
-            const user = users.find((user) => {
-                return user.id === parseInt(args.id, 10);
-            });
-
+        user: async(root, args, context) => {
+            console.log(args);
+            console.log('context',context.user._id)
+            const user = await User.findOne({_id:context.user._id} )
             return user;
         },
 
-        User: {
-            favoriteUsers: (root, args, context) => {
-              console.log("root", root);
-              const user = root;
-              const friendIds = user.friendIds;
-              const friends = users.filter((user) => {
-                return friendIds.includes(user.id);
-              });
-              return friends;
-            }
-          }
+    },
+
+    User: {
+        favoriteUsers: async (root, args, context) => {
+            console.log("root", root);
+            const user = root;
+            const friendIds = user.favoriteUsers;
+            const friends = await User.find({'_id':{$in:friendIds}})
+           console.log('friends',friends)
+            return friends;
+        }
     },
 
     Mutation: {

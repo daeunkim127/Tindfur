@@ -4,11 +4,11 @@ const typeDefs = gql`
 
 type User {
     _id: ID!
-    name: String
-    email: String
-    city: String
-    state: String
-    breed: String
+    name: String!
+    email: String!
+    city: String!
+    state: String!
+    breed: String!
     characteristics:[String]
     favoriteTreat: String
     image: String
