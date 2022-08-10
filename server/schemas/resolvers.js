@@ -5,61 +5,25 @@ const { default: mongoose } = require('mongoose');
 const resolvers = {
 
     Query: {
-       
-        me: async (parent, args, context) => {
-            if(context.user) {
-
-                const userData = await User.findOne({_id:context.user._id})
-                .select('-__v -password')
-                // .populate('favoriteUsers')
-                
-                const ids = userData.favoriteUsers.map((item)=>{return mongoose.Types.ObjectId(item)})
-                
-                const favoriteData = await User.find({'_id':{$in:ids}});
-                console.log(favoriteData)
-                return {
-                    ...userData,
-                    favorites:favoriteData
-                }
-            }
-
-            throw new AuthenticationError('Not logged in')
-
+        user: async(root, args, context) => {
+            console.log(args);
+            console.log('context',context.user._id)
+            const user = await User.findOne({_id:context.user._id} )
+            return user;
         },
-        
-        userWithFavorites: async(parent,args,context) =>{
-            if(context.user) {
 
-                const userData = await User.findOne({_id:context.user._id})
-                .select('-__v -password')
-                // .populate('favoriteUsers')
-                
-                const ids = userData.favoriteUsers.map((item)=>{return mongoose.Types.ObjectId(item)})
-                console.log(ids);
-                const favoriteData = await User.find({'_id':{$in:ids}});
-               
-                console.log('favoriteData',favoriteData)
-                return {
-                    user:userData,
-                    favorites:favoriteData
-                }
-            }
-
-            throw new AuthenticationError('Not logged in')
-
-            
-        }
     },
 
-    // FavoriteUsers:{
-    //     users: async(parent) =>{
-    //         console.log(parent)
-    //         const ids = parent.map((item)=>{return mongoose.Types.ObjectId(item)})
-    //         const userData = await User.find({'_id':{$in:ids}});
-
-    //         return userData;
-    //     }
-    // },
+    User: {
+        favoriteUsers: async (root, args, context) => {
+            console.log("root", root);
+            const user = root;
+            const friendIds = user.favoriteUsers;
+            const friends = await User.find({'_id':{$in:friendIds}})
+           console.log('friends',friends)
+            return friends;
+        }
+    },
 
     Mutation: {
 
