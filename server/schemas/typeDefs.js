@@ -12,7 +12,7 @@ type User {
     characteristics:[String]
     favoriteTreat: String
     image: String
-    favoriteUsers: [Favorite]
+    savedDogs: [Favorite]
       
 }
 
@@ -22,7 +22,7 @@ type Favorite {
 }
 
 type Query{
-    user(id: ID): User
+    me(id: ID): User
 }
 
 
@@ -34,8 +34,8 @@ type Auth {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveFav(_id: ID!): User
-    removeFav(_id: ID!): User
+    saveDog(_id: ID!): User
+    removeDog(_id: ID!): User
 }
 
 `;
