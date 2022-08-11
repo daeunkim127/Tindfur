@@ -63,11 +63,19 @@ const User = () => {
   };
 
   const nextDog = async () => { // grab random dog from the array
+    const nextDogArray = searchedDogs.filter(dogMatch);
     const currentDog = searchedDogs[Math.floor(Math.random()*(searchedDogs.length-1))];
 
+    const dogMatch = () => {
+        currentDog == savedDogs[i];
+    }
     for (let i=0; i<searchedDogs.length; i++){
     if(currentDog == savedDogs[i]) {
         // filter this array so that the dog you are presented with is not a dog already in the favorites list.
+        dogMatch == true;
+    } else {
+        // present the dog at index i to the user
+        nextDogArray[i];
     }
   }
 }
