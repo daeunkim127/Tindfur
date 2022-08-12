@@ -8,7 +8,7 @@ import { ADD_USER } from "../utils/mutations";
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
     city: "",
@@ -17,8 +17,8 @@ const SignupForm = () => {
     age: "",
     gender: "",
     about: "",
-    characteristics: [],
-    favorite_treat: "",
+    characteristics: "",
+    favoriteTreat: "",
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -54,7 +54,7 @@ const SignupForm = () => {
     }
 
     setUserFormData({
-      username: "",
+      name: "",
       email: "",
       password: "",
       city: "",
@@ -63,8 +63,8 @@ const SignupForm = () => {
       age: "",
       gender: "",
       about: "",
-      characteristics: [],
-      favorite_treat: "",
+      characteristics: "",
+      favoriteTreat: "",
     });
   };
 
@@ -82,18 +82,18 @@ const SignupForm = () => {
           Something went wrong with your signup!
         </Alert>
 
-        <Form.Group>
-          <Form.Label htmlFor="username">Username</Form.Label>
+         <Form.Group>
+          <Form.Label htmlFor="name">Name</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Your username"
-            name="username"
+            placeholder="Your name"
+            name="name"
             onChange={handleInputChange}
-            value={userFormData.username}
+            value={userFormData.name}
             required
           />
           <Form.Control.Feedback type="invalid">
-            Username is required!
+            Name is required!
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -127,7 +127,7 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+         <Form.Group>
           <Form.Label htmlFor="city">City</Form.Label>
           <Form.Control
             type="city"
@@ -187,11 +187,10 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+         <Form.Group>
           <Form.Label htmlFor="Gender">Gender</Form.Label>
-          <Form.Select
-            type="gender"
-            placeholder="Your gender"
+          <select
+            
             name="gender"
             onChange={handleInputChange}
             value={userFormData.gender}
@@ -199,14 +198,14 @@ const SignupForm = () => {
           >
             <option value="Male">Male</option>
             <option value="Female">Female</option>
-          </Form.Select>
+          </select>
 
           <Form.Control.Feedback type="invalid">
             Gender is required!
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+         <Form.Group>
           <Form.Label htmlFor="about">About</Form.Label>
           <Form.Control
             type="about"
@@ -236,25 +235,25 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="favorite_treat">Favorite Treat(s)</Form.Label>
+         <Form.Group>
+          <Form.Label htmlFor="favoriteTreat">Favorite Treat(s)</Form.Label>
           <Form.Control
-            type="favorite_treat"
+            type="favoriteTreat"
             placeholder="Your favorite treat(s)"
-            name="favorite_treat"
+            name="favoriteTreat"
             onChange={handleInputChange}
-            value={userFormData.favorite_treat}
+            value={userFormData.favoriteTreat}
             required
           />
           <Form.Control.Feedback type="invalid">
             Favorite treat(s) are required!
           </Form.Control.Feedback>
-        </Form.Group>
+        </Form.Group> 
 
         <Button
           disabled={
             !(
-              userFormData.username &&
+              userFormData.name &&
               userFormData.email &&
               userFormData.password &&
               userFormData.city &&
@@ -264,12 +263,11 @@ const SignupForm = () => {
               userFormData.gender &&
               userFormData.about &&
               userFormData.characteristics &&
-              userFormData.favorite_treat
+              userFormData.favoriteTreat
             )
           }
           type="submit"
-          variant="success"
-        >
+          variant="success">
           Submit
         </Button>
       </Form>

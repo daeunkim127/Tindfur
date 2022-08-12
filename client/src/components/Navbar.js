@@ -5,7 +5,7 @@ import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
 import Auth from '../utils/auth';
-import homepageImg from '../images/homepage.jpg'
+
 
 const AppNavbar = () => {
   // set modal display state
@@ -15,12 +15,12 @@ const AppNavbar = () => {
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            <img src={homepageImg} width= "30" height= "30" className="d-inline-block align-top" alt="Tindfur Logo" />
-          </Navbar.Brand>
+          {/* <Navbar.Brand>
+            <img src='../images/tindfur-logo.png' width= "30" height= "30" className="d-inline-block align-top" alt="Tindfur Logo" />
+          </Navbar.Brand> */}
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
-            <Nav className='me-auto'>
+            {/* <Nav className='me-auto'>
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
@@ -31,7 +31,7 @@ const AppNavbar = () => {
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
-            </Nav>
+            </Nav> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>

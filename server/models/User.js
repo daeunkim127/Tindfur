@@ -49,7 +49,7 @@ const userSchema = new Schema(
     image: {
       type: String,
     },
-    favoriteUsers: [
+    savedDogs: [
       {
       type: Schema.Types.ObjectId,
       ref:'User'
