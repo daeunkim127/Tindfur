@@ -1,9 +1,9 @@
-export const getSavedDogIds = () => {
-  const savedDogIds = localStorage.getItem('saved_dogs')
+export const getFavoriteUsers = () => {
+  const favoriteUsers = localStorage.getItem('saved_dogs')
     ? JSON.parse(localStorage.getItem('saved_dogs'))
     : [];
 
-  return savedDogIds;
+  return favoriteUsers;
 };
 
 export const saveDogIds = (dogIdArr) => {
