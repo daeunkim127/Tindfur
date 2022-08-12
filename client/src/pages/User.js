@@ -27,22 +27,22 @@ const User = () => {
       return false;
     }
     try {
-      const response = await searchGoogleBooks(searchInput); // swipe dogs (save favorite dog)
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
-      const { items } = await response.json();
-        const dogData = items.map((dog) => ({
-             dogID: dog.id,
-             name: dog.name,
-             location: dog.location,
-             breed: dog.breed,
-             characteristics: [dog.charactersitics],
-             favorite_treat: dog.treat,
-             image: dog.image
-         }));
-      setSearchedDogs(dogData);
-      setSearchInput('');
+      // const response = await searchGoogleBooks(searchInput); // swipe dogs (save favorite dog)
+      // if (!response.ok) {
+      //   throw new Error('something went wrong!');
+      // }
+      // const { items } = await response.json();
+      //   const dogData = items.map((dog) => ({
+      //        dogID: dog.id,
+      //        name: dog.name,
+      //        location: dog.location,
+      //        breed: dog.breed,
+      //        characteristics: [dog.charactersitics],
+      //        favorite_treat: dog.treat,
+      //        image: dog.image
+      //    }));
+      // setSearchedDogs(dogData);
+      // setSearchInput('');
     } catch (err) {
       console.error(err);
     }
@@ -51,16 +51,16 @@ const User = () => {
     const nextDogArray = searchedDogs.filter(dogMatch);
     const currentDog = searchedDogs[Math.floor(Math.random()*(searchedDogs.length-1))];
     const dogMatch = () => {
-        currentDog == savedDogs[i];
+        // currentDog == savedDogs[i];
     }
     for (let i=0; i<searchedDogs.length; i++){
-    if(currentDog == savedDogs[i]) {
-        // filter this array so that the dog you are presented with is not a dog already in the favorites list.
-        dogMatch == true;
-    } else {
-        // present the dog at index i to the user
-        nextDogArray[i];
-    }
+    // if(currentDog == savedDogs[i]) {
+    //     // filter this array so that the dog you are presented with is not a dog already in the favorites list.
+    //     dogMatch == true;
+    // } else {
+    //     // present the dog at index i to the user
+    //     nextDogArray[i];
+    // }
   }
 }
   // create function to handle saving a favorite dog to our database
@@ -90,9 +90,9 @@ const User = () => {
     nextDog();
   };
   // create function to handle deleting a rejected dog
+  const [deleteDog] = useMutation(REMOVE_DOG);
   const handleDeleteDog = async (dogId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    const [deleteDog] = useMutation(REMOVE_DOG);
     if (!token) {
       return false;
     }
@@ -109,7 +109,7 @@ const User = () => {
         }
       });
       // upon success, remove book's id from localStorage
-      removeDogId(dogId);
+      // removeDogId(dogId);
     } catch (err) {
       console.error(err);
     }
