@@ -6,21 +6,25 @@ const resolvers = {
 
     Query: {
         me: async(root, args, context) => {
-            console.log(args);
-            console.log('context',context.user._id)
             const user = await User.findOne({_id:context.user._id} )
             return user;
         },
+        users: async() => {
+        
+            const userData = await User.find({})
+          
+            return userData
+        }
 
     },
 
     User: {
         savedDogs: async (root, args, context) => {
-            console.log("root", root);
+            
             const user = root;
             const friendIds = user.savedDogs;
             const friends = await User.find({'_id':{$in:friendIds}})
-           console.log('friends',friends)
+           
             return friends;
         }
     },

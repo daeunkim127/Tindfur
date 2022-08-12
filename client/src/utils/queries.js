@@ -8,7 +8,7 @@ export const GET_ME = gql`
         name
         email
         savedDogs {
-          _id
+          id
           email
           city
           state
@@ -24,3 +24,22 @@ export const GET_ME = gql`
      }
   }
 `;
+
+export const GET_ALL =gql`
+  query getAll {
+    users{
+          _id
+          email
+          city
+          state
+          breed
+          age
+          gender
+          about
+          image
+          characteristics
+          name
+          favoriteTreat
+          }
+  }
+`

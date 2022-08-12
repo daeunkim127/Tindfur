@@ -5,7 +5,7 @@ import Favorites from "./pages/Favorites";
 import Homepage from "./pages/Homepage";
 import User from "./pages/User";
 import Navbar from "./components/Navbar";
-
+import Auth from "./utils/auth";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -23,8 +23,8 @@ function App() {
         <div className="container">
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/saved" element={<Favorites/>} />
-          <Route path="/user" element={<User/>} />
+          <Route path="/saved" element={Auth.loggedIn() ? <Favorites/> :<Homepage/>} />
+          <Route path="/user" element={Auth.loggedIn() ? <User/> :<Homepage/>} />
         </Routes>
         </div>
         </div>

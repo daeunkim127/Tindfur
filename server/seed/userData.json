@@ -9,7 +9,7 @@
         "age":2,
         "gender":"Male",
         "about":"Love long walks and games of catch",
-        "characteristics":["Friendly", "Alert", "Reserved", "Intelligent", "Protective"],
+        "characteristics":"Friendly, Alert, Reserved, Intelligent, Protective",
         "favoriteTreat":"Yogurt",
         "image":"https://cdn2.thedogapi.com/images/HJq5ke5Nm_1280.jpg",
         "savedDogs":["62ee8850e4cf845e0be7b044"]
@@ -24,7 +24,7 @@
         "age":1,
         "gender":"Male",
         "about":"He is very faithful, intelligent, and full of energy all the time.",
-        "characteristics":["Fearless", "Alert", "Loyal", "Confident", "Gay", "Eager"],
+        "characteristics":"Fearless, Alert, Loyal,Confident,Eager",
         "favoriteTreat":"biscuits",
         "image":"https://cdn2.thedogapi.com/images/SJ5vzx5NX_1280.jpg"
     
@@ -39,7 +39,7 @@
         "age":2,
         "gender":"Female",
         "about":"Very friendly and smart",
-        "characteristics":["Playful", "Docile", "Fearless", "Affectionate", "Sweet-Tempered"],
+        "characteristics":"Playful, Docile, Fearless, Affectionate, Sweet-Tempered",
         "favoriteTreat":"Jerky",
         "image":"https://cdn2.thedogapi.com/images/B1SV7gqN7_1280.jpg"
     
@@ -54,7 +54,7 @@
         "age":5,
         "gender":"Female",
         "about":"he is the most polite dog I have met ever.",
-        "characteristics":["Tenacious", "Keen", "Energetic", "Responsive", "Alert"],
+        "characteristics":"Tenacious, Keen, Energetic, Responsive, Alert",
         "favoriteTreat":"Chicken Jerky",
         "image":"https://cdn2.thedogapi.com/images/Vh2yFrSLm.jpg"
     
@@ -69,7 +69,7 @@
         "age":2,
         "gender":"Male",
         "about":"Shy at first, but eager to play",
-        "characteristics":["Playful", "Quiet", "Faithful"],
+        "characteristics":"Playful, Quiet, Faithful",
         "favoriteTreat":"Chicken Jerky",
         "image":"https://cdn2.thedogapi.com/images/BP9tUfS_h.jpg"
     
@@ -84,7 +84,7 @@
         "age":3,
         "gender":"Female",
         "about":"It has a strong smelling sense.",
-        "characteristics":["Playful", "Loyal", "Independent"],
+        "characteristics":"Playful, Loyal, Independent",
         "favoriteTreat":"Dried Beef",
         "image":"https://cdn2.thedogapi.com/images/hYsMv3NQi.jpg"
     
@@ -99,7 +99,7 @@
         "age":4,
         "gender":"Female",
         "about":"He loves eating vegetables",
-        "characteristics":["Agile", "Alert", "Intelligent", "Active", "Territorial"],
+        "characteristics":"Agile, Alert, Intelligent, Active, Territorial",
         "favoriteTreat":"Vegetables",
         "image":"https://cdn2.thedogapi.com/images/mAdKLn7Rv.jpg"
     
