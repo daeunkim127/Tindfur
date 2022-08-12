@@ -5,7 +5,7 @@ import Auth from '../utils/auth';
 // import {} from '../utils/API';
 import { saveDogIds, getSavedDogIds } from '../utils/localStorage'; // needs modification, you want to render the dog options to the homepage upon login.
 import { useMutation } from '@apollo/react-hooks';
-import {SAVE_DOG} from '../utils/mutations';
+import { SAVE_DOG, REMOVE_DOG } from '../utils/mutations';
 import { GET_ME } from '../utils/queries';
 
 const User = () => {
@@ -110,6 +110,34 @@ const User = () => {
     }
 
     nextDog();
+  };
+
+  // create function to handle deleting a rejected dog
+  const handleDeleteDog = async (dogId) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const [deleteDog] = useMutation(REMOVE_DOG);
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      await deleteDog({
+        variables: {dogId: dogId},
+        update: cache => {
+          const data = cache.readQuery({ query: GET_ME });
+          const userDataCache = data.me;
+          const savedDogsCache = userDataCache.savedDogs;
+          const updatedDogCache = savedDogsCache.filter((dog) => dog.dogId !== dogId);
+          data.me.savedDogs = updatedDogCache;
+          cache.writeQuery({ query: GET_ME , data: {data: {...data.me.savedDogs}}})
+        }
+      });
+      // upon success, remove book's id from localStorage
+      removeDogId(dogId);
+    } catch (err) {
+      console.error(err);
+    }
   };
     return (
         <>
