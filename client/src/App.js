@@ -1,11 +1,11 @@
 import React from "react";
-import { BrowserRouter ,Router, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Favorites from "./pages/Favorites";
 import Homepage from "./pages/Homepage";
 import User from "./pages/User";
 import Navbar from "./components/Navbar";
-// import Switch from "react-bootstrap/esm/Switch";
+
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -15,16 +15,21 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <>
-      <Navbar />
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Homepage} />
-          <Route path="/saved" component={Favorites} />
-          <Route path="/user" component={User} />
-        </Switch>
-      </BrowserRouter>
-    </>
+    
+      
+      <Router>
+        <div className='flex-colum justify-flex-start min-100-vh'>
+        <Navbar />
+        <div className="container">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/saved" element={<Favorites/>} />
+          <Route path="/user" element={<User/>} />
+        </Routes>
+        </div>
+        </div>
+      </Router>
+      
     </ApolloProvider>
 
     //  <ApolloProvider client={client}>

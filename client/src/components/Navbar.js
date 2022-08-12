@@ -13,10 +13,10 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar  variant='light' expand='lg'>
         <Container fluid>
           <Navbar.Brand>
-            <img src={Logo} height= "30" className="d-inline-block align-top" alt="Tindfur Logo" />
+            <img src={Logo} height= "70" className="d-inline-block align-top" alt="Tindfur Logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
