@@ -1,6 +1,6 @@
 import React from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
-
+import Fido from '../images/fido.jpg'
 // import { useQuery, useMutation } from '@apollo/react-hooks';
 // import { GET_ME } from '../utils/queries';
 // import { REMOVE_DOG } from '../utils/mutations';
@@ -67,12 +67,13 @@ const SavedDogs = () => {
         <CardColumns>
             <Card>
               <Card.Body>
+                  <img src={Fido} width="170"/>
                   <Card.Title>Fido</Card.Title>
                   <p className='small'>Location: Atlanta, GA</p>
                   <Card.Text>Breed: Cocker Spaniel</Card.Text>
                   <Card.Text>Age: 3</Card.Text>
                   <Card.Text>Gender: Male</Card.Text>
-                  <Card.Text>About: Fido loves playing fetch</Card.Text>
+                  <Card.Text>About: Fido loves long walks</Card.Text>
                   <Card.Text>Characteristics: Fun, cool, chill</Card.Text>
                   <Card.Text>Favorite Treat: Bacon</Card.Text>
               </Card.Body>
