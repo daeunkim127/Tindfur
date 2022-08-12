@@ -35,7 +35,8 @@ type Favorite {
 }
 
 type Query{
-    me(id: ID): User
+    me(_id: ID): User
+    users:[User]
 }
 
 

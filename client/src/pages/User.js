@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Button, Card, CardColumns } from 'react-bootstrap';
 import homepageImg from '../images/homepage.jpg'
-// import Auth from '../utils/auth';
+import Auth from '../utils/auth';
 // // import {} from '../utils/API';
 // import { saveDogIds, getFavoriteUsers } from '../utils/localStorage'; // needs modification, you want to render the dog options to the homepage upon login.
 import { useQuery } from '@apollo/react-hooks';
 // import { SAVE_DOG, REMOVE_DOG } from '../utils/mutations';
-import { GET_ME } from '../utils/queries';
+import { GET_ME, GET_ALL} from '../utils/queries';
 const User = () => {
       // create state for holding returned dog favorites data
   const [allUsers, setAllUsers] = useState([]);
-
-  const { loading, data} = useQuery(GET_ME);
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  const profile = Auth.getProfile();
+  const { loading, data} = useQuery(GET_ALL);
   console.log(data)
-  const userData = data?.me || [];
+  const userData = data;
   console.log(userData)
   // const allUsers = [1, 2, 3, 4]
   // create state to hold saved dogId values
