@@ -190,12 +190,13 @@ const SignupForm = () => {
          <Form.Group>
           <Form.Label htmlFor="Gender">Gender</Form.Label>
           <select
-            
+            id="gender"
             name="gender"
             onChange={handleInputChange}
             value={userFormData.gender}
             required
           >
+            <option value="">Choose</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
