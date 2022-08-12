@@ -1,54 +1,54 @@
 import React from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import { GET_ME } from '../utils/queries';
-import { REMOVE_DOG } from '../utils/mutations';
-import Auth from '../utils/auth';
-import { removeDogId } from '../utils/localStorage';
+// import { useQuery, useMutation } from '@apollo/react-hooks';
+// import { GET_ME } from '../utils/queries';
+// import { REMOVE_DOG } from '../utils/mutations';
+// import Auth from '../utils/auth';
+// import { removeDogId } from '../utils/localStorage';
 
 const SavedDogs = () => {
-  const { loading, data } = useQuery(GET_ME);
-  const [deleteDog] = useMutation(REMOVE_DOG);
-  const userData = data?.me || {};
+  // const { loading, data } = useQuery(GET_ME);
+  // const [deleteDog] = useMutation(REMOVE_DOG);
+  // const userData = data?.me || {};
 
-  if(!userData?.username) {
-    return (
-      <h4>
-        You need to be logged in to see this page. Use the navigation links above to sign up or log in!
-      </h4>
-    );
-  }
+  // if(!userData?.username) {
+  //   return (
+  //     <h4>
+  //       You need to be logged in to see this page. Use the navigation links above to sign up or log in!
+  //     </h4>
+  //   );
+  // }
 
-  const handleDeleteDog = async (dogId) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  // const handleDeleteDog = async (dogId) => {
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    if (!token) {
-      return false;
-    }
+  //   if (!token) {
+  //     return false;
+  //   }
 
-    try {
-      await deleteDog({
-        variables: {dogId: dogId},
-        update: cache => {
-          const data = cache.readQuery({ query: GET_ME });
-          const userDataCache = data.me;
-          const savedDogsCache = userDataCache.savedDogs;
-          const updatedDogCache = savedDogsCache.filter((dog) => dog.dogId !== dogId);
-          data.me.savedDogs = updatedDogCache;
-          cache.writeQuery({ query: GET_ME , data: {data: {...data.me.savedDogs}}})
-        }
-      });
-      // upon success, remove book's id from localStorage
-      removeDogId(dogId);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //   try {
+  //     await deleteDog({
+  //       variables: {dogId: dogId},
+  //       update: cache => {
+  //         const data = cache.readQuery({ query: GET_ME });
+  //         const userDataCache = data.me;
+  //         const savedDogsCache = userDataCache.savedDogs;
+  //         const updatedDogCache = savedDogsCache.filter((dog) => dog.dogId !== dogId);
+  //         data.me.savedDogs = updatedDogCache;
+  //         cache.writeQuery({ query: GET_ME , data: {data: {...data.me.savedDogs}}})
+  //       }
+  //     });
+  //     // upon success, remove book's id from localStorage
+  //     removeDogId(dogId);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
   // if data isn't here yet, say so
-  if (loading) {
-    return <h2>LOADING...</h2>;
-  }
+  // if (loading) {
+  //   return <h2>LOADING...</h2>;
+  // }
 
   return (
     <>
@@ -59,12 +59,26 @@ const SavedDogs = () => {
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedDogs.length
+          You have no favorite dogs!
+          {/* {userData.savedDogs.length
             ? `Viewing ${userData.savedDogs.length} saved ${userData.savedDogs.length === 1 ? 'dog' : 'dogs'}:`
-            : 'You have no saved dogs!'}
+            : 'You have no saved dogs!'} */}
         </h2>
         <CardColumns>
-          {userData.savedDogs.map((dog) => {
+            <Card>
+              <Card.Body>
+                  <Card.Title>Fido</Card.Title>
+                  <p className='small'>Location: Atlanta, GA</p>
+                  <Card.Text>Breed: Cocker Spaniel</Card.Text>
+                  <Card.Text>Age: 3</Card.Text>
+                  <Card.Text>Gender: Male</Card.Text>
+                  <Card.Text>About: Fido loves playing fetch</Card.Text>
+                  <Card.Text>Characteristics: Fun, cool, chill</Card.Text>
+                  <Card.Text>Favorite Treat: Bacon</Card.Text>
+              </Card.Body>
+            </Card>
+
+          {/* {userData.savedDogs.map((dog) => {
             return (
               <Card key={dog.dogId} border='dark'>
                 {dog.image ? <Card.Img src={dog.image} alt={`The photo of ${dog.name}`} variant='top' /> : null}
@@ -83,7 +97,7 @@ const SavedDogs = () => {
                 </Card.Body>
               </Card>
             );
-          })}
+          })} */}
         </CardColumns>
       </Container>
     </>
