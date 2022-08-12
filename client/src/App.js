@@ -2,17 +2,24 @@ import React from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import Favorites from "./pages/Favorites";
 // import Homepage from "./pages/Homepage";
-// import User from "./pages/User";
-// import Navbar from "./components/Navbar";
+import User from "./pages/User";
+import Navbar from "./components/Navbar";
 // import Switch from "react-bootstrap/esm/Switch";
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
+
 
 function App() {
   return (
-    // <p>hello world</p>
-    <>
-<Favorites />
-        {/* <Navbar /> */}
-    </>
+ <ApolloProvider client={client}>
+   
+   <Navbar />
+   <User />
+  </ApolloProvider>
     // <Router>
     //   <>
     //     <Switch>

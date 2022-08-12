@@ -1,26 +1,26 @@
-  
-import gql from "graphql-tag";
+import { gql } from '@apollo/client';
+
 
 export const GET_ME = gql`
-  {
-    me {
-      _id
-      username
-      email
-      dogCount
-      savedDogs {
-        city
-        state
-        breed
-        dogId
-        age
-        gender
-        about
-        image
-        characteristics
+  query getMe{
+      me {
+        _id
         name
-        favorite_treat
-      }
-    }
+        email
+        savedDogs {
+          _id
+          email
+          city
+          state
+          breed
+          age
+          gender
+          about
+          image
+          characteristics
+          name
+          favoriteTreat
+        }
+     }
   }
 `;

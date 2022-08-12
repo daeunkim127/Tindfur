@@ -6,7 +6,7 @@ export const LOGIN_USER = gql`
       token
       user {
         _id
-        username
+        name
       }
     }
   }
@@ -14,58 +14,56 @@ export const LOGIN_USER = gql`
 
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!, $city: String!, $state: String!, $breed: String!, $age: String!, $gender: String!, $about: String!, $characteristics: String!, $favorite_treat: String!) {
-    addUser(username: $username, email: $email, password: $password, city: $city, state: $state, breed: $breed, age: $age, gender: $gender, about: $about, characteristics: $characteristics, favorite_treat: $favorite_treat) {
-      token
-      user {
-        _id
-        username
-      }
+mutation addUser($name: String!, $email: String!, $password: String!, $city: String!, $state: String!, $breed: String!, $age: String!, $gender: String!, $characteristics: String!, $favoriteTreat: String!) {
+  addUser(name: $name, email: $email, password: $password, city: $city, state: $state, breed: $breed, age: $age, gender: $gender, characteristics: $characteristics, favoriteTreat: $favoriteTreat) {
+    token
+    user {
+      _id
+      name
     }
   }
+}
 `;
 
 export const SAVE_DOG = gql`
-  mutation saveDog(_id: ID!) {
-    saveDog(dog: $dog) {
-      username
+  mutation saveDog($_id: ID!) {
+    saveDog(_id: $id) {
+      name
       email
-      dogCount
       savedDogs {
         city
         state
         breed
-        dogId
+        id
         age
         gender
         about
         image
         characteristics
         name
-        favorite_treat
+        favoriteTreat
       }
     }
   }
 `;
 
 export const REMOVE_DOG = gql`
-  mutation removeDog(_id:ID!) {
-    removeDog(dogId: $dogId) {
-      username
+  mutation removeDog($id:ID!) {
+    removeDog(_id: $id) {
+      name
       email
-      dogCount
       savedDogs {
         city
         state
         breed
-        dogId
+        id
         age
         gender
         about
         image
         characteristics
         name
-        favorite_treat
+        favoriteTreat
       }
     }
   }

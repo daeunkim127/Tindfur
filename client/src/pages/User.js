@@ -4,12 +4,17 @@ import homepageImg from '../images/homepage.jpg'
 // import Auth from '../utils/auth';
 // // import {} from '../utils/API';
 // import { saveDogIds, getFavoriteUsers } from '../utils/localStorage'; // needs modification, you want to render the dog options to the homepage upon login.
-// import { useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 // import { SAVE_DOG, REMOVE_DOG } from '../utils/mutations';
-// import { GET_ME } from '../utils/queries';
+import { GET_ME } from '../utils/queries';
 const User = () => {
       // create state for holding returned dog favorites data
   const [allUsers, setAllUsers] = useState([]);
+
+  const { loading, data} = useQuery(GET_ME);
+  console.log(data)
+  const userData = data?.me || [];
+  console.log(userData)
   // const allUsers = [1, 2, 3, 4]
   // create state to hold saved dogId values
   // const [favoriteUsers, setFavoriteUsers] = useState(getFavoriteUsers());
@@ -129,7 +134,7 @@ const User = () => {
             </h2>
              <CardColumns>
               <Card>
-                <img src={homepageImg} alt="two dogs" width="1300" height="700" rounded />
+                <img src={homepageImg} alt="two dogs" width="1300" height="700"/>
                 <Card.Body>
                       <Card.Title>Dog Title</Card.Title>
                       <p className='large'>name: Fido</p>
