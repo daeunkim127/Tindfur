@@ -5,7 +5,7 @@ const { default: mongoose } = require('mongoose');
 const resolvers = {
 
     Query: {
-        user: async(root, args, context) => {
+        me: async(root, args, context) => {
             console.log(args);
             console.log('context',context.user._id)
             const user = await User.findOne({_id:context.user._id} )
@@ -15,10 +15,10 @@ const resolvers = {
     },
 
     User: {
-        favoriteUsers: async (root, args, context) => {
+        savedDogs: async (root, args, context) => {
             console.log("root", root);
             const user = root;
-            const friendIds = user.favoriteUsers;
+            const friendIds = user.savedDogs;
             const friends = await User.find({'_id':{$in:friendIds}})
            console.log('friends',friends)
             return friends;
@@ -52,7 +52,7 @@ const resolvers = {
     
         },
 
-        saveFav: async (parent, {_id}, context) => {
+        saveDog: async (parent, {_id}, context) => {
             if (context.user) {
      
              const updatedUser =  await User.findByIdAndUpdate(
@@ -69,7 +69,7 @@ const resolvers = {
 
 
 
-        removeFav: async (parent, args, context) => {
+        removeDog: async (parent, args, context) => {
             if(context.user) {
             const updatedUser = await User.findOneAndUpdate(
                 { _id: context.user._id },
