@@ -1,7 +1,7 @@
 const { User } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const { default: mongoose } = require('mongoose');
+const { default: mongoose, isObjectIdOrHexString } = require('mongoose');
 const resolvers = {
 
     Query: {
@@ -56,13 +56,13 @@ const resolvers = {
     
         },
 
-        saveDog: async (parent, {_id}, context) => {
+        saveDog: async (parent, args, context) => {
             
             if (context.user) {
-     
+              console.log(args)  
              const updatedUser =  await User.findByIdAndUpdate(
                 { _id: context.user._id },
-                { $addToSet: { savedDogs: {_id} } },
+                { $addToSet: { savedDogs: args.id } },
                 { new: true }
               );
           
@@ -75,13 +75,15 @@ const resolvers = {
 
 
         removeDog: async (parent, args, context) => {
+            console.log(args)
             if(context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                 { _id: context.user._id },
-                { $pull: { savedDogs: { id: args.id } } },
+                { $pull: { savedDogs:{$in:args.id} } },
                 { new: true }
+               
             );
-
+    console.log(updatedUser.savedDogs)
             return updatedUser;
             }
 
