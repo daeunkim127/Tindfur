@@ -9,13 +9,14 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_ME, GET_ALL} from '../utils/queries';
 const User = () => {
       // create state for holding returned dog favorites data
-  const [allUsers, setAllUsers] = useState([]);
-  const token = Auth.loggedIn() ? Auth.getToken() : null;
-  const profile = Auth.getProfile();
-  const { loading, data} = useQuery(GET_ALL);
-  console.log(data)
-  const userData = data;
+  // const [allUsers, setAllUsers] = useState([]);
+  const { data: userData, error: errorR, loading: landingR } = useQuery(GET_ALL);
+  const { data:userProfile, error, loading } = useQuery(GET_ME);
+  // console.log(userData)
   console.log(userData)
+  const allUsers = userData?.users
+  
+  console.log(allUsers)
   // const allUsers = [1, 2, 3, 4]
   // create state to hold saved dogId values
   // const [favoriteUsers, setFavoriteUsers] = useState(getFavoriteUsers());

@@ -48,8 +48,8 @@ type Auth {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(name: String!, email: String!, password: String!, city: String!, state: String!, breed:String!, age:String!, gender:String!, characteristics:String!, favoriteTreat:String!): Auth
-    saveDog(_id: ID!): User
-    removeDog(_id: ID!): User
+    saveDog(id: ID!): User
+    removeDog(id: ID!): User
 }
 
 `;

@@ -44,12 +44,12 @@ module.exports = {
   },
   // save a dog to a user's `favoriteUsers` field by adding it to the set (to prevent duplicates)
   // user comes from `req.user` created in the auth middleware function
-  async saveFav({ user, body }, res) {
+  async saveDogs({ user, body }, res) {
     console.log(user);
     try {
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
-        { $addToSet: { favoriteUsers: body } },
+        { $addToSet: { savedDogs: body } },
         { new: true, runValidators: true }
       );
       return res.json(updatedUser);
@@ -59,10 +59,10 @@ module.exports = {
     }
   },
   // remove a user from `favoriteUsers`
-  async deleteFav({ user, params }, res) {
+  async removeDogs({ user, params }, res) {
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
-      { $pull: { favoriteUsers: { _id: params._id } } },
+      { $pull: { savedDogs: { id: params.id } } },
       { new: true }
     );
     if (!updatedUser) {

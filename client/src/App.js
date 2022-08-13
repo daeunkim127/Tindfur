@@ -1,14 +1,28 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloClient, ApolloProvider, InMemoryCache,  createHttpLink } from "@apollo/client";
+import { setContext } from '@apollo/client/link/context';
 import Favorites from "./pages/Favorites";
 import Homepage from "./pages/Homepage";
 import User from "./pages/User";
 import Navbar from "./components/Navbar";
 import Auth from "./utils/auth";
 
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 const client = new ApolloClient({
-  uri: "/graphql",
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -31,19 +45,6 @@ function App() {
       </Router>
       
     </ApolloProvider>
-
-    //  <ApolloProvider client={client}>
-    //     <Router>
-    //       <>
-    //         <Routes>
-    //           <Route  path="/" exact component={Homepage} />
-    //           <Route  path="/saved" component={Favorites} />
-    //           <Route  path="/user" component={User} />
-    //           <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
-    //         </Routes>
-    //       </>
-    //     </Router>
-    //   </ApolloProvider>
   );
 }
 
