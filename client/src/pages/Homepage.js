@@ -5,7 +5,7 @@ import homepageImg from "../images/homepage.jpg";
 const Homepage = () => {
   return (
     <>
-      <Container>
+      <Container className='text-center'>
         <h1>Everyone deserves love, even Dogs!</h1>
       </Container>
       <Jumbotron>
