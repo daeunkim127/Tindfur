@@ -13,14 +13,14 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar  variant='light' expand='lg'>
-        <Container fluid>
-          <Navbar.Brand>
-            <img src={Logo} height= "70" className="d-inline-block align-top" alt="Tindfur Logo" />
+      <Navbar  variant='light' expand='lg' >
+        <Container  >
+          <Navbar.Brand className='d-flex'>
+            <img src={Logo} height= "100" className='justify-content-end'  alt="Tindfur Logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
-          <Navbar.Collapse id='navbar'>
-            <Nav className='ml-auto'>
+          <Navbar.Collapse id='navbar'className='justify-content-end'>
+            <Nav >
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>

@@ -36,9 +36,10 @@ function App() {
         <Navbar />
         <div className="container">
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/saved" element={Auth.loggedIn() ? <Favorites/> :<Homepage/>} />
-          <Route path="/user" element={Auth.loggedIn() ? <User/> :<Homepage/>} />
+          <Route path="/" element={Auth.loggedIn() ? <User/> :<Homepage/>} />
+          <Route path="/user" element={<User/> } />
+          <Route path="/saved" element={ <Favorites/> } />
+          
         </Routes>
         </div>
         </div>
