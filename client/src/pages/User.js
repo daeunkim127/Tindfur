@@ -47,7 +47,7 @@ const User = () => {
   }    return (
         <>
         <br />
-          <Jumbotron fluid className='text-light bg-dark'>
+          <Jumbotron fluid className='text-light bg-success'>
             <Container className='text-center'>
               <h1>Find Dog Love Here</h1>
             </Container>

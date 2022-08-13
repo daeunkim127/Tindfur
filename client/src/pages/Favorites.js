@@ -53,7 +53,7 @@ const SavedDogs = () => {
   return (
     <>
     <br />
-      <Jumbotron fluid className='text-light bg-dark'>
+      <Jumbotron fluid className='text-light bg-success'>
         
         <Container className='text-center'>
           <h1>Viewing your Favorite Dogs!</h1>
