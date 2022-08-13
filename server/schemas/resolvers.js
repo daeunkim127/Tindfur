@@ -57,11 +57,12 @@ const resolvers = {
         },
 
         saveDog: async (parent, {_id}, context) => {
+            console.log(context)
             if (context.user) {
      
              const updatedUser =  await User.findByIdAndUpdate(
                 { _id: context.user._id },
-                { $addToSet: { favoriteUsers: {_id} } },
+                { $addToSet: { savedDogs: {_id} } },
                 { new: true }
               );
           
@@ -75,9 +76,9 @@ const resolvers = {
 
         removeDog: async (parent, args, context) => {
             if(context.user) {
-            const updatedUser = await User.findOneAndUpdate(
+                const updatedUser = await User.findOneAndUpdate(
                 { _id: context.user._id },
-                { $pull: { favoriteUsers: { _id: args._id } } },
+                { $pull: { savedDogs: { id: args.id } } },
                 { new: true }
             );
 

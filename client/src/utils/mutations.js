@@ -26,8 +26,8 @@ mutation addUser($name: String!, $email: String!, $password: String!, $city: Str
 `;
 
 export const SAVE_DOG = gql`
-  mutation saveDog($_id: ID!) {
-    saveDog(_id: $id) {
+  mutation saveDog($id: ID!) {
+    saveDog(id: $id) {
       name
       email
       savedDogs {
@@ -49,7 +49,7 @@ export const SAVE_DOG = gql`
 
 export const REMOVE_DOG = gql`
   mutation removeDog($id:ID!) {
-    removeDog(_id: $id) {
+    removeDog(id: $id) {
       name
       email
       savedDogs {
