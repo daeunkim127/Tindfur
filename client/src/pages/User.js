@@ -11,15 +11,19 @@ const User = () => {
 
   const { data: userData, error: errorR, loading: landingR } = useQuery(GET_ALL);
   const { data:userProfile, error, loading } = useQuery(GET_ME);
- 
+  const [savedDogIds, setSavedDogIds] = useState(getFavoriteUsers);
   const allUsers = userData?.users || {};
   const profile = userProfile?.me || {};
-  console.log(allUsers);
+
   console.log(profile);
   const [saveDog]=useMutation(SAVE_DOG)
+  useEffect(() => {
+    return () => saveDogIds(savedDogIds);
+  });
+
   const handleSaveDog = async (dogId) => {
         // find the dog in `allUsers` state by the matching id
-        const dogToSave = allUsers.find((dog) => dog.dogId === dogId); // should most likely change to an on click function
+        const dogToSave = allUsers.find((dog) => dog._id === dogId); // should most likely change to an on click function
         // get token
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
