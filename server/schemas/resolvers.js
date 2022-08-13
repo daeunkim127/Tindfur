@@ -57,7 +57,7 @@ const resolvers = {
         },
 
         saveDog: async (parent, {_id}, context) => {
-            console.log(context)
+            
             if (context.user) {
      
              const updatedUser =  await User.findByIdAndUpdate(

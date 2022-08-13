@@ -52,19 +52,22 @@ const SavedDogs = () => {
 
   return (
     <>
+    <br />
       <Jumbotron fluid className='text-light bg-dark'>
         
-        <Container>
+        <Container className='text-center'>
           <h1>Viewing your Favorite Dogs!</h1>
         </Container>
       </Jumbotron>
-      <Container>
-        <h2>
+      <br />
+      <Container className='text-center'>
+        <h3>
          
           {userData.savedDogs.length
             ? `Viewing ${userData.savedDogs.length} saved ${userData.savedDogs.length === 1 ? 'dog' : 'dogs'}:`
             : 'You have no saved dogs!'}
-        </h2>
+        </h3>
+        <br/>
         <Container >
           <Row>
           {userData.savedDogs.map((dog) => {

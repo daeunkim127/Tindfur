@@ -1,13 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  Jumbotron,
-  Container,
-  Col,
-  Form,
-  Button,
-  Card,
-  CardColumns,
-} from "react-bootstrap";
+import React from "react";
+import {  Jumbotron, Container } from "react-bootstrap";
 import homepageImg from "../images/homepage.jpg";
 
 const Homepage = () => {
@@ -23,7 +15,6 @@ const Homepage = () => {
             alt="two dogs"
             width="1200"
             height="700"
-            rounded
             style={{ alignSelf: "center" }}
           />
         </Container>
